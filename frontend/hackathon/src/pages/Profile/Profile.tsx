@@ -21,15 +21,20 @@ const Profile = () => {
     const onPreferencesChange = (e: CheckboxChangeEvent) => {
         const newPrefArray = [...preferences];
 
-        if (e.checked)
-            newPrefArray.push(e.value);
-        else
-            newPrefArray.splice(newPrefArray.indexOf(e.value), 1);
+        if (newPrefArray.length < 3) {
+            if (e.checked)
+                newPrefArray.push(e.value);
+            else
+                newPrefArray.splice(newPrefArray.indexOf(e.value), 1);
+        } else {
+            if (!e.checked)
+                newPrefArray.splice(newPrefArray.indexOf(e.value), 1);
+        }
 
         setPreferences(newPrefArray);
     }
 
-    const listOfPassions = ['Sport, Outdoors, Cultural, Concerts, History, Dance, Singing']
+    const listOfPassions = ['Sport', 'Outdoors', 'Cultural', 'Concerts', 'History', 'Dance', 'Singing']
 
     return <>
         <Navbar/>
@@ -57,17 +62,32 @@ const Profile = () => {
                     </div>
                     <Dialog header="Change your passions" visible={visible} style={{width: '50vw'}}
                             onHide={() => setVisible(false)}>
-                        {listOfPassions.map((elem, index) => <Checkbox inputId={"preference" + index} value={elem}
-                                                                       onChange={onPreferencesChange}
-                                                                       checked={preferences.includes(elem)}/>)}
+                        <div style={{display: "flex", flexDirection: "column"}}>
+                            {listOfPassions.map((elem, index) => {
 
-                        {/*<label htmlFor="preference1" className="ml-2">Culture</label>*/}
-                        {/*<Checkbox inputId="preference2" value="Sports" onChange={onPreferencesChange}*/}
-                        {/*          checked={preferences.includes('Sports')}/>*/}
-                        {/*<label htmlFor="preference2" className="ml-2">Sports</label>*/}
-                        {/*<Checkbox inputId="preference3" value="History" onChange={onPreferencesChange}*/}
-                        {/*          checked={preferences.includes('History')}/>*/}
-                        {/*<label htmlFor="preference3" className="ml-2">History</label>*/}
+                                    return <div style={{display: 'flex', marginBottom: '1rem'}} key={index}><Checkbox
+                                        inputId={"preference" + index}
+                                        value={elem}
+                                        onChange={onPreferencesChange}
+
+                                        checked={preferences.includes(elem)}
+                                    />
+                                        <label style={{marginLeft: '1rem'}} htmlFor={"preference" + index}
+                                               className="ml-2">{elem}</label>
+                                    </div>
+                                }
+                            )}
+                            <div style={{width: '100%', display: "flex", justifyContent: 'center'}}>
+                                <Button onClick={() => {
+                                    setVisible(false);
+                                    let newPref: string = "";
+                                    for (const pref of preferences)
+                                        newPref = newPref + "," + pref
+                                    localStorage.setItem('passions', newPref.substring(1))
+                                }}>Confirm change</Button>
+                            </div>
+                        </div>
+
                     </Dialog>
                 </div>
                 <Button>Update your Photo</Button>
