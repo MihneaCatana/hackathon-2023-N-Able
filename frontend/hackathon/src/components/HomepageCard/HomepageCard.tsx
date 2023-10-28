@@ -21,7 +21,7 @@ const HomepageCard = ({title, description, location, photo_url, date, ticket_pri
             <div className={'sponsor_card_container_header'}>
                 <h2>{title}</h2>
                 <i className='pi pi-map-marker' style={{fontSize: '1.2rem', color: '#8a452b'}}
-                   onClick={() => window.open("https://www.google.com/maps/place/" + location, '_blank', 'noopener,noreferrer')}>{location}</i>
+                   onClick={() => window.open("https://www.google.com/maps/place/" + location, '_blank', 'noopener,noreferrer')}>Location</i>
             </div>
             <div className={'sponsor_card_bottom'}>
                 <p>{description}</p>

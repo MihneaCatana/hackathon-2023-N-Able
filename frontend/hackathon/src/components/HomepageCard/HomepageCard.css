@@ -31,13 +31,18 @@
 .sponsor_card_container_header > h2 {
     margin: 0;
     width: 70%;
-
     overflow-y: auto;
 }
+
+.sponsor_card_container_header > i {
+    width: 33%;
+}
+
 
 @media screen and (max-width: 1480px) {
     .sponsor_card {
         width: 40%;
+        padding-bottom: 3rem;
     }
 
     .sponsor_card_container_header > h2 {
