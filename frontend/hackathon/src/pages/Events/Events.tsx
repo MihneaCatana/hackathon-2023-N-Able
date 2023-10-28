@@ -52,7 +52,6 @@ const Events = () => {
     return <>
         <Navbar/>
         <h2>Your current city: {city} </h2>
-        {console.log(eventsList)}
         <MapContainer center={[selectedCity.latitude, selectedCity.longitude]} zoom={14} scrollWheelZoom={true}>
             <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -63,9 +62,11 @@ const Events = () => {
                 pathOptions={{color: 'red'}} radius={30} key={point.label}>
                 <Popup>{point.label}</Popup>
             </CircleMarker>)}
-            <CircleMarker center={[41.904755, 12.454628]} pathOptions={{color: 'red'}} radius={30}>
-                <Popup>Vatican City</Popup>
-            </CircleMarker>
+            {eventsList.map((event) => <CircleMarker
+                center={{lat: event.event.coords.split(',')[0], lng: event.event.coords.split(',')[1]}}
+                pathOptions={{color: 'blue'}} radius={30} key={event.event.title}>
+                <Popup>{event.event.title}</Popup>
+            </CircleMarker>)}
         </MapContainer>
     </>
 }
