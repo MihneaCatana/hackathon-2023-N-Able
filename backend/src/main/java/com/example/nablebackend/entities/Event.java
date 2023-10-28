@@ -24,7 +24,7 @@ public class Event {
     @JsonFormat(pattern = "dd.MM.yyyy HH:mm")
     @DateTimeFormat(pattern = "dd.MM.yyyy HH:mm")
     private LocalDateTime date;
-
+    private String title;
     private String description;
     private String location;
     private Float ticketPrice;
