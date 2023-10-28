@@ -3,6 +3,19 @@ import {CircleMarker, MapContainer, Popup, TileLayer} from "react-leaflet";
 import {useEffect, useState} from "react";
 import Axios from "axios";
 
+type Event = {
+    user: {
+        id: number
+    },
+    event: {
+        id: number,
+        location: string,
+        photoUrl: string,
+        coords: string,
+        title: string
+    }
+}
+
 const Events = () => {
 
     const [eventsList, setEventsList] = useState([])
@@ -51,7 +64,10 @@ const Events = () => {
 
     return <>
         <Navbar/>
-        <h2>Your current city: {city} </h2>
+        <span style={{width: '100%', display: "flex", justifyContent: 'space-between'}}>
+            <span style={{width: '80%', fontSize: '19px'}}>Your current city: {city}</span>
+            <span style={{width: '20%', fontSize: '17px'}}>🔵 - Events ;  🔴 - Attractions</span>
+        </span>
         <MapContainer center={[selectedCity.latitude, selectedCity.longitude]} zoom={14} scrollWheelZoom={true}>
             <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -62,8 +78,11 @@ const Events = () => {
                 pathOptions={{color: 'red'}} radius={30} key={point.label}>
                 <Popup>{point.label}</Popup>
             </CircleMarker>)}
-            {eventsList.map((event) => <CircleMarker
-                center={{lat: event.event.coords.split(',')[0], lng: event.event.coords.split(',')[1]}}
+            {eventsList.map((event: Event) => <CircleMarker
+                center={{
+                    lat: parseFloat(event.event.coords.split(',')[0]),
+                    lng: parseFloat(event.event.coords.split(',')[1])
+                }}
                 pathOptions={{color: 'blue'}} radius={30} key={event.event.title}>
                 <Popup>{event.event.title}</Popup>
             </CircleMarker>)}
