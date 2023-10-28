@@ -3,13 +3,14 @@ import {Button} from "primereact/button";
 
 import "./HomepageCard.css"
 
-const HomepageCard = ({title, description, location, photo_url, date, ticket_price}: {
+const HomepageCard = ({title, description, location, photo_url, date, ticket_price, ticketUrl}: {
     title: string,
     description: string,
     location: string,
     photo_url: string,
     date: string,
-    ticket_price: number
+    ticket_price: number,
+    ticketUrl: string
 }) => {
     return <div className={'sponsor_card'}>
         <div className={'sponsor_card_image'}>
@@ -40,8 +41,9 @@ const HomepageCard = ({title, description, location, photo_url, date, ticket_pri
                         marginLeft: '0.3rem'
                     }}> {ticket_price ? ticket_price + '$' : 'Free'}</span> </i>
                 </div>
-                <Button onClick={() => {
-                }}>Reserve a seat</Button>
+                <Button
+                    onClick={() => window.open(ticketUrl, '_blank', 'noopener,noreferrer')}>Reserve
+                    a seat</Button>
             </div>
         </div>
     </div>

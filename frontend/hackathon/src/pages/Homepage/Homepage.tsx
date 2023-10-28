@@ -21,6 +21,7 @@ type EventType = {
         location: string,
         photoUrl: string,
         date: string,
+        ticketUrl: string,
         ticketPrice: number
     }
 }
@@ -49,55 +50,64 @@ const Homepage = () => {
                 <TabPanel header="Sponsored Content">
                     <h1 style={{textAlign: 'center'}}>Sponsored Content</h1>
                     <div className='homepage_cards_section'>
-                        {eventsList.map((elem: EventType) => <HomepageCard description={elem.event.description}
-                                                                           photo_url={elem.event.photoUrl}
-                                                                           title={elem.event.title}
-                                                                           location={elem.event.location}
-                                                                           date={elem.event.date}
-                                                                           ticket_price={elem.event.ticketPrice}
-                                                                           key={elem.event.id}/>)}
+                        {eventsList.length ? eventsList.map((elem: EventType) => <HomepageCard
+                            description={elem.event.description}
+                            ticketUrl={elem.event.ticketUrl}
+                            photo_url={elem.event.photoUrl}
+                            title={elem.event.title}
+                            location={elem.event.location}
+                            date={elem.event.date}
+                            ticket_price={elem.event.ticketPrice}
+                            key={elem.event.id}/>) : <p> There are no events. Please come back later!</p>}
                     </div>
                 </TabPanel>
                 <TabPanel header="Cultural">
                     <h1 style={{textAlign: 'center'}}>Cultural</h1>
                     <div className='homepage_cards_section'>
-                        {eventsList.map((elem: EventType) => <HomepageCard description={elem.event.description}
-                                                                           photo_url={elem.event.photoUrl}
-                                                                           title={elem.event.title}
-                                                                           location={elem.event.location}
-                                                                           date={elem.event.date}
-                                                                           ticket_price={elem.event.ticketPrice}
-                                                                           key={elem.event.id}/>)}
+                        {eventsList.length ? eventsList.map((elem: EventType) => <HomepageCard
+                            description={elem.event.description}
+                            ticketUrl={elem.event.ticketUrl}
+                            photo_url={elem.event.photoUrl}
+                            title={elem.event.title}
+                            location={elem.event.location}
+                            date={elem.event.date}
+                            ticket_price={elem.event.ticketPrice}
+                            key={elem.event.id}/>) : <p> There are no events. Please come back later!</p>}
                     </div>
                 </TabPanel>
                 <TabPanel header="Outdoors">
                     <h1 style={{textAlign: 'center'}}>Outdoors</h1>
                     <div className='homepage_cards_section'>
-                        {eventsList.map((elem: EventType) => <HomepageCard description={elem.event.description}
-                                                                           photo_url={elem.event.photoUrl}
-                                                                           title={elem.event.title}
-                                                                           location={elem.event.location}
-                                                                           date={elem.event.date}
-                                                                           ticket_price={elem.event.ticketPrice}
-                                                                           key={elem.event.id}/>)}
+                        {eventsList.length ? eventsList.map((elem: EventType) => <HomepageCard
+                            description={elem.event.description}
+                            ticketUrl={elem.event.ticketUrl}
+                            photo_url={elem.event.photoUrl}
+                            title={elem.event.title}
+                            location={elem.event.location}
+                            date={elem.event.date}
+                            ticket_price={elem.event.ticketPrice}
+                            key={elem.event.id}/>) : <p> There are no events. Please come back later!</p>}
                     </div>
                 </TabPanel>
                 <TabPanel header="Sport">
                     <h1 style={{textAlign: 'center'}}>Sport</h1>
                     <div className='homepage_cards_section'>
-                        {eventsList.map((elem: EventType) => <HomepageCard description={elem.event.description}
-                                                                           photo_url={elem.event.photoUrl}
-                                                                           title={elem.event.title}
-                                                                           location={elem.event.location}
-                                                                           date={elem.event.date}
-                                                                           ticket_price={elem.event.ticketPrice}
-                                                                           key={elem.event.id}/>)}
+                        {eventsList.length ? eventsList.map((elem: EventType) => <HomepageCard
+                            description={elem.event.description}
+                            ticketUrl={elem.event.ticketUrl}
+                            photo_url={elem.event.photoUrl}
+                            title={elem.event.title}
+                            location={elem.event.location}
+                            date={elem.event.date}
+                            ticket_price={elem.event.ticketPrice}
+                            key={elem.event.id}/>) : <p> There are no events. Please come back later!</p>}
                     </div>
                 </TabPanel>
                 <TabPanel header="Concert">
                     <h1 style={{textAlign: 'center'}}>Concert</h1>
                     <div className='homepage_cards_section'>
                         {eventsList.length ? eventsList.map((elem: EventType) => <HomepageCard
+                            ticketUrl={elem.event.ticketUrl}
                             description={elem.event.description}
                             photo_url={elem.event.photoUrl}
                             title={elem.event.title}
