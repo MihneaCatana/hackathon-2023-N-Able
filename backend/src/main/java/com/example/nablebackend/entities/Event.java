@@ -30,6 +30,8 @@ public class Event {
     private Float ticketPrice;
     private Integer noSpots;
     private String photoUrl;
+    private String ticketUrl;
+    private String coords;
     private String tags;
     @ManyToOne
     @JoinColumn(name = "userId")
