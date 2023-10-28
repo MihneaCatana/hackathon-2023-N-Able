@@ -17,4 +17,8 @@ public class UserService {
         user.setPassword(StringEncryptor.decrypt(user.getPassword()));
         return user;
     }
+
+    public User findUserEmailPass(String email, String password){
+        return this.userRepo.findByEmailAndPassword(email, StringEncryptor.encrypt(password));
+    }
 }
