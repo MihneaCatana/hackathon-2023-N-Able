@@ -1,6 +1,7 @@
 package com.example.nablebackend.controller;
 
 import com.example.nablebackend.entities.Event;
+import com.example.nablebackend.entities.EventDTO;
 import com.example.nablebackend.entities.User;
 import com.example.nablebackend.entities.UserDTO;
 import com.example.nablebackend.service.EventService;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.util.List;
 
 @RestController
 @RequestMapping("/users")
@@ -58,13 +60,25 @@ public class UserController {
     }
 
     @PostMapping("/{id}/events")
-    public ResponseEntity<Event> addEvent(@PathVariable(name = "id") Integer userId, @RequestBody Event event){
+    public ResponseEntity<EventDTO> addEvent(@PathVariable(name = "id") Integer userId, @RequestBody Event event){
         User user = userService.findById(userId);
         if(user==null){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
         event.setUser(user);
-        Event eventResp = eventService.save(event);
+        EventDTO eventResp = eventService.save(event);
         return ResponseEntity.status(HttpStatus.OK).body(eventResp);
+    }
+
+    @PostMapping("/{id}/eventsbulk")
+    public ResponseEntity<List<EventDTO>> addEventsBulk(@PathVariable(name = "id") Integer userId, @RequestBody List<Event> events){
+        User user = userService.findById(userId);
+        if(user==null){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
+        for(Event event : events){
+            event.setUser(user);
+        }
+        return ResponseEntity.ok().body(this.eventService.saveAll(events));
     }
 }

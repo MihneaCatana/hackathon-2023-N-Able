@@ -13,8 +13,8 @@ import java.util.List;
 public class EventService {
     @Autowired
     EventRepo eventRepo;
-    public Event save(Event event){
-        return this.eventRepo.save(event);
+    public EventDTO save(Event event){
+        return new EventDTO(this.eventRepo.save(event), event.getUser());
     }
 
     public List<EventDTO> getEvents() {
@@ -28,6 +28,15 @@ public class EventService {
 
     public List<EventDTO> getEventsWithTag(String tag) {
         List<Event> events = this.eventRepo.findEventByTag(tag);
+        List<EventDTO> dtoEvents = new ArrayList<>();
+        for(Event event : events){
+            dtoEvents.add(new EventDTO(event, event.getUser()));
+        }
+        return dtoEvents;
+    }
+
+    public List<EventDTO> saveAll(List<Event> events) {
+        List<Event> eventsFormat = this.eventRepo.saveAll(events);
         List<EventDTO> dtoEvents = new ArrayList<>();
         for(Event event : events){
             dtoEvents.add(new EventDTO(event, event.getUser()));
