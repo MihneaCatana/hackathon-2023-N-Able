@@ -5,18 +5,22 @@ import {Password} from "primereact/password";
 import {Button} from "primereact/button";
 import {toast, ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import {useNavigate} from "react-router-dom";
+import Axios from "axios";
 
-const Authentification = () => {
+const Authentication = () => {
 
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('')
     const [registerMode, setRegisterMode] = useState(false)
 
+    const navigate = useNavigate();
+
     const submit = () => {
 
         let nrError = "";
-        
+
         if (registerMode) {
 
             if (username.length < 5) {
@@ -34,7 +38,6 @@ const Authentification = () => {
             }
 
         }
-
         if (email.length < 1 || !/^[a-zA-Z0-9_.+-]+@gmail\.com$/.test(email)) {
             toast.error('Invalid email!', {
                 position: "top-right",
@@ -63,8 +66,60 @@ const Authentification = () => {
             nrError += ' password_err ';
         }
 
-        if (!nrError.length)
-            console.log('Success')
+        if (nrError.length) {
+            throw new Error('You have errors: ' + nrError)
+        }
+
+        if (registerMode) {
+            Axios.post('http://localhost:8080/users', {
+                username: username,
+                email: email,
+                password: password,
+                isAdmin: false
+            }).then((res) => {
+                localStorage.setItem('account', JSON.stringify({
+                    id: res.data.id,
+                    username: username,
+                    email: email,
+                    isAdmin: false
+                }))
+                navigate("/homepage");
+            }).catch(() => toast.error('This email is already used!', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: false,
+                progress: undefined,
+                theme: "colored",
+            }))
+        } else {
+            Axios.post('http://localhost:8080/users/login', {
+                email: email,
+                password: password,
+            }).then((res) => {
+                localStorage.setItem('account', JSON.stringify({
+                    id: res.data.id,
+                    username: res.data.username,
+                    email: email,
+                    isAdmin: false
+                }))
+                navigate("/homepage");
+            }).catch((err) => {
+                console.error(err)
+                toast.error('Invalid credentials!', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: true,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: false,
+                    progress: undefined,
+                    theme: "colored",
+                })
+            })
+        }
     }
 
     return <>
@@ -98,4 +153,4 @@ const Authentification = () => {
     </>
 }
 
-export default Authentification
+export default Authentication

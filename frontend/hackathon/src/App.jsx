@@ -2,7 +2,8 @@ import './App.css'
 import "primereact/resources/themes/lara-light-indigo/theme.css";
 import {Navigate, Outlet, Route, Routes} from "react-router-dom";
 import React from "react";
-import Authentification from "./pages/Authentification.tsx";
+import Authentication from "./pages/Authentification/Authentication.tsx";
+import Homepage from "./pages/Homepage/Homepage.tsx";
 
 function App() {
 
@@ -18,9 +19,9 @@ function App() {
 
     return (
         <Routes>
-            <Route path="/auth" element={<Authentification/>}/>
+            <Route path="/auth" element={<Authentication/>}/>
             <Route path="/homepage" element={<PrivateRoute path="/auth"/>}>
-                <Route path="/homepage" element={'DONE'}/>
+                <Route path="/homepage" element={<Homepage/>}/>
             </Route>
             <Route path="*" element={"404 error"}/>
         </Routes>
