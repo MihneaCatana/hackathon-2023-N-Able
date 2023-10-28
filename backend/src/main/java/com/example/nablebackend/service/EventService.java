@@ -25,4 +25,13 @@ public class EventService {
         }
         return dtoEvents;
     }
+
+    public List<EventDTO> getEventsWithTag(String tag) {
+        List<Event> events = this.eventRepo.findEventByTag(tag);
+        List<EventDTO> dtoEvents = new ArrayList<>();
+        for(Event event : events){
+            dtoEvents.add(new EventDTO(event, event.getUser()));
+        }
+        return dtoEvents;
+    }
 }
