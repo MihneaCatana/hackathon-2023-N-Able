@@ -1,0 +1,110 @@
+[
+  {
+    "date": "20.08.2023 20:30",
+    "title": "Annual Charity Gala",
+    "description": "Join us for an elegant evening of fundraising and entertainment to support local charities.",
+    "location": "Calea Dorobanți 5-7, București",
+    "ticketPrice": 20.5,
+    "noSpots": 10,
+    "photoUrl": "https://www.nonprofitmarketingguide.com/wp-content/uploads/2021/02/6852113971_c21241139b_b.jpg",
+    "tags": "Upcoming,Popular,Cultural",
+    "ticketUrl": "https://www.ticketsforgood.org/",
+    "coords":"44.44649021800157,26.09937396826247"
+  },
+  {
+    "date": "15.09.2023 14:00",
+    "title": "Tech Conference 2023",
+    "description": "Discover the latest trends in technology and network with industry leaders at this year's tech conference.",
+    "location": "Bulevardul Mărăști 65-67, București",
+    "ticketPrice": 30.0,
+    "noSpots": 500,
+    "photoUrl": "https://images.inc.com/uploaded_files/image/1920x1080/getty_495445876_970647970450088_104855.jpg",
+    "tags": "Upcoming,Popular",
+    "ticketUrl": "https://www.dev-con.ro/?utm_source=search&utm_medium=cpc&utm_campaign=DevCon&utm_content=Campanie_Generala_BP&gclid=EAIaIQobChMI1ZCCn4OZggMV2_d3Ch0TcQHUEAAYASAAEgILafD_BwE",
+    "coords":"44.47696616789295,26.07039069709956"
+  },
+  {
+    "date": "05.07.2023 09:00",
+    "title": "Nature Photography Workshop",
+    "description": "Learn the art of capturing stunning natural landscapes with a hands-on photography workshop.",
+    "location": "Şoseaua Pavel D. Kiseleff 32, București",
+    "ticketPrice": 25.5,
+    "noSpots": 20,
+    "photoUrl": "https://web-images.pixpa.com/AgoJLUoMwFWCmDfAImOabZyWYgvbpRy8B6cH0vpo60o/rs:fit:1200:0/q:80/czM6Ly9waXhwYS5jb20vL2NvbS9hcnRpY2xlcy8xNTU5MjA4NzI0LTk2MTcyNS1kZXBvc2l0cGhvdG9zLTE2NjUwNjg5OC1sLTIwMTVqcGVnLmpwZw==",
+    "tags": "Popular,Outdoors",
+    "ticketUrl": "https://www.cursuldefotografie.ro/workshop-uri-fotografie-bucuresti/",
+    "coords":"44.476574890580785,26.074824983606714"
+  },
+  {
+    "date": "10.06.2023 18:00",
+    "title": "Music Festival",
+    "description": "Dance to the rhythm of live music from top artists and enjoy delicious food and drinks at our annual music festival.",
+    "location": "Bulevardul Basarabia 37-39, București",
+    "ticketPrice": 40.0,
+    "noSpots": 1000,
+    "photoUrl": "https://untold.shop/sites/default/files/styles/slideshow/public/field/image/slideshow/slide-untold2023-2.jpg?itok=95QcH1tB",
+    "tags": "Upcoming,Popular,Outdoors",
+    "ticketUrl": "https://untold.com/",
+    "coords":"44.43742908478725,26.15259912115026"
+  },
+  {
+    "date": "25.08.2023 11:30",
+    "title": "Health and Wellness Expo",
+    "description": "Explore a variety of health and wellness products and services, and attend informative seminars for a healthier lifestyle.",
+    "location": "Galeriile Titan, Etajele 3 si 4, Str. Liviu Rebreanu 6a",
+    "ticketPrice": 15.5,
+    "noSpots": 50,
+    "photoUrl": "https://d2c0db5b8fb27c1c9887-9b32efc83a6b298bb22e7a1df0837426.ssl.cf2.rackcdn.com/12179441-fitness-class-4096x2304.jpeg",
+    "tags": "Popular,Cultural,Sport",
+    "ticketUrl": "https://www.cursuri.frcf.ro/",
+    "coords":"44.426082050066526,26.160881036374345"
+  },
+  {
+    "date": "12.09.2023 15:45",
+    "title": "Art Exhibition Opening Night",
+    "description": "Experience the creativity of local artists as they unveil their latest masterpieces at our gallery opening night.",
+    "location": "Calea Victoriei 49-53, București",
+    "ticketPrice": 10.0,
+    "noSpots": 30,
+    "photoUrl": "https://images.hindustantimes.com/img/2021/03/06/1600x900/pjimage_-_2021-03-06T192427.069_1615038899966_1615038907778.jpg",
+    "tags": "Popular",
+    "ticketUrl": "https://mnar.ro/tarife",
+    "coords":"44.440511334416385,26.09574305444471"
+  },
+  {
+    "date": "03.07.2023 08:00",
+    "title": "Community Cleanup Day",
+    "description": "Join us in making our community cleaner and greener by participating in a neighborhood cleanup day.",
+    "location": "Bucuresti",
+    "ticketPrice": 0.0,
+    "noSpots": 100,
+    "photoUrl": "https://otterwaiver.com/wp-content/uploads/2021/03/young-man-cleaning-the-beach-VTN7W6U-scaled.jpg",
+    "tags": "Cultural,Outdoors",
+    "ticketUrl": "https://strazipentruoameni.net/sustine",
+    "coords":"44.42681468110973, 26.102453467999865"
+  },
+  {
+    "date": "18.08.2023 17:15",
+    "title": "Film Screening: Classic Movies",
+    "description": "Relive the magic of classic cinema with a special screening of iconic films from the golden age of Hollywood.",
+    "location": "Calea Victoriei 49-53, București",
+    "ticketPrice": 12.5,
+    "noSpots": 200,
+    "photoUrl": "https://www.londonaudiovisual.co.uk/wp-content/uploads/2015/05/Film_Screening.jpg",
+    "tags": "Popular,Cultural",
+    "ticketUrl":"https://www.creart.ro/gradina-cu-filme-cinema/",
+    "coords":"44.43954483431877,26.09542975412999"
+  },
+  {
+    "date": "01.06.2023 19:30",
+    "title": "Culinary Masterclass",
+    "description": "Enhance your cooking skills with a hands-on culinary masterclass led by renowned chefs.",
+    "location": "Bulevardul Mărăști 65-67, București",
+    "ticketPrice": 50.0,
+    "noSpots": 25,
+    "photoUrl": "https://cambridgeculinary.com/wp-content/uploads/2019/08/meringue-check-in-pro-class-1-of-1-e1565036943245-thegem-blog-default.jpg",
+    "tags": "Upcoming,Outdoors",
+    "ticketUrl":"https://cookingstudio.ro/cursuri-de-gatit/",
+    "coords":"44.47726551021189,26.0697024544698"
+  }
+]
