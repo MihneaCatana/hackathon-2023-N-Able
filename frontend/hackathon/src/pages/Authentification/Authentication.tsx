@@ -87,6 +87,7 @@ const Authentication = () => {
                     email: email,
                     isAdmin: false
                 }))
+                localStorage.setItem('passions', 'Culture,Sports,Concerts')
                 navigate("/homepage");
             }).catch(() => toast.error('This email is already used!', {
                 position: "top-right",
@@ -109,6 +110,8 @@ const Authentication = () => {
                     email: email,
                     isAdmin: false
                 }))
+                localStorage.setItem('passions', 'Culture,Sports,Concerts')
+
                 navigate("/homepage");
             }).catch((err) => {
                 console.error(err)
