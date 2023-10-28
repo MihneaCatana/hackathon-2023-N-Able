@@ -2,7 +2,7 @@ import {useNavigate} from "react-router-dom";
 
 import {Toolbar} from "primereact/toolbar";
 import {Button} from "primereact/button";
-import Logo from "../../../public/logo.png"
+import Logo from "../../assets/logo.png"
 
 const Navbar = () => {
 
@@ -31,7 +31,7 @@ const Navbar = () => {
                 boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
             }
         }
-    }} start={Logo}
+    }} start={<img alt={'logo'} src={Logo} width={'70px'}/>}
                     end={links.map((element) => <Button
                         onClick={() => {
                             navigate(element.link);

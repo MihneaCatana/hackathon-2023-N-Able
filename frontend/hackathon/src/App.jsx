@@ -4,6 +4,7 @@ import {Navigate, Outlet, Route, Routes} from "react-router-dom";
 import Authentication from "./pages/Authentification/Authentication.tsx";
 import Homepage from "./pages/Homepage/Homepage.tsx";
 import Profile from "./pages/Profile/Profile.tsx";
+import Events from "./pages/Events/Events.tsx";
 
 import "primereact/resources/themes/lara-light-indigo/theme.css";
 import './App.css'
@@ -28,6 +29,9 @@ function App() {
             </Route>
             <Route path="/profile" element={<PrivateRoute path="/auth"/>}>
                 <Route path="/profile" element={<Profile/>}/>
+            </Route>
+            <Route path="/events" element={<PrivateRoute path="/auth"/>}>
+                <Route path="/events" element={<Events/>}/>
             </Route>
             <Route path="*" element={"404 error"}/>
         </Routes>

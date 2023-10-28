@@ -6,7 +6,9 @@ import Axios from "axios";
 import HomepageCard from "../../components/HomepageCard/HomepageCard.tsx";
 
 type EventType = {
-    user: {},
+    user: {
+        id: number
+    },
     event: {
         id: number,
         title: string,
