@@ -1,5 +1,6 @@
-import {Toolbar} from "primereact/toolbar";
 import {useNavigate} from "react-router-dom";
+
+import {Toolbar} from "primereact/toolbar";
 import {Button} from "primereact/button";
 
 const Navbar = () => {
@@ -34,7 +35,7 @@ const Navbar = () => {
                         onClick={() => {
                             navigate(element.link);
                             if (element.name === 'Logout') localStorage.removeItem('account')
-                        }} link>{element.name}</Button>)}/>
+                        }} link key={element.name}>{element.name}</Button>)}/>
 
 }
 

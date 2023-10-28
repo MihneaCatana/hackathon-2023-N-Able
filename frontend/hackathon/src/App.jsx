@@ -1,9 +1,12 @@
-import './App.css'
-import "primereact/resources/themes/lara-light-indigo/theme.css";
-import {Navigate, Outlet, Route, Routes} from "react-router-dom";
 import React from "react";
+import {Navigate, Outlet, Route, Routes} from "react-router-dom";
+
 import Authentication from "./pages/Authentification/Authentication.tsx";
 import Homepage from "./pages/Homepage/Homepage.tsx";
+
+import "primereact/resources/themes/lara-light-indigo/theme.css";
+import './App.css'
+import 'primeicons/primeicons.css';
 
 function App() {
 
