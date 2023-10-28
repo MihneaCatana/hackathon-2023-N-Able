@@ -18,6 +18,9 @@ public class Event {
     private String location;
     private Float ticketPrice;
     private Integer noSpots;
+
+    private String photoUrl;
+
     @ManyToOne
     @JoinColumn(name = "userId")
     @JsonIgnore

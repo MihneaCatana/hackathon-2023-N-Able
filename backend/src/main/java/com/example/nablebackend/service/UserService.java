@@ -21,4 +21,8 @@ public class UserService {
     public User findUserEmailPass(String email, String password){
         return this.userRepo.findByEmailAndPassword(email, StringEncryptor.encrypt(password));
     }
+
+    public User findByEmail(String email){
+        return this.userRepo.findByEmail(email);
+    }
 }

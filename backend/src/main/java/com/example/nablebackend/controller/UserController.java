@@ -3,6 +3,7 @@ package com.example.nablebackend.controller;
 import com.example.nablebackend.entities.User;
 import com.example.nablebackend.entities.UserDTO;
 import com.example.nablebackend.service.UserService;
+import com.example.nablebackend.utils.StringEncryptor;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,9 +23,9 @@ public class UserController {
 
     @PostMapping
     public ResponseEntity<UserDTO> saveUser(@RequestBody User user) {
-        User userResp = userService.findUserEmailPass(user.getEmail(), user.getPassword());
+        User userResp = userService.findByEmail(user.getEmail());
         if (userResp != null) {
-            return ResponseEntity.status(HttpStatus.FOUND).body(new UserDTO(userResp));
+            return ResponseEntity.status(HttpStatus.FOUND).body(null);
         }
         User usr = userService.save(user);
         UserDTO userDTO = new UserDTO(user);
@@ -45,7 +46,7 @@ public class UserController {
         if (user.getEmail() != null && user.getPassword() != null) {
             User userResp = userService.findUserEmailPass(user.getEmail(), user.getPassword());
             if (userResp != null) {
-                return ResponseEntity.status(HttpStatus.FOUND).body(new UserDTO(userResp));
+                return ResponseEntity.status(HttpStatus.OK).body(new UserDTO(userResp));
             }
         }
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
