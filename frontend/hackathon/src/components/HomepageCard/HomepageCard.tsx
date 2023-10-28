@@ -11,8 +11,6 @@ const HomepageCard = ({title, description, location, photo_url, date, ticket_pri
     date: string,
     ticket_price: number
 }) => {
-
-
     return <div className={'sponsor_card'}>
         <div className={'sponsor_card_image'}>
             <Image src={photo_url} alt={title} width='100%' height='100%' preview/>
@@ -42,7 +40,8 @@ const HomepageCard = ({title, description, location, photo_url, date, ticket_pri
                         marginLeft: '0.3rem'
                     }}> {ticket_price ? ticket_price + '$' : 'Free'}</span> </i>
                 </div>
-                <Button>Reserve a seat</Button>
+                <Button onClick={() => {
+                }}>Reserve a seat</Button>
             </div>
         </div>
     </div>
