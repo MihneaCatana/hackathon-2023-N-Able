@@ -1,7 +1,9 @@
 package com.example.nablebackend.controller;
 
+import com.example.nablebackend.entities.Event;
 import com.example.nablebackend.entities.User;
 import com.example.nablebackend.entities.UserDTO;
+import com.example.nablebackend.service.EventService;
 import com.example.nablebackend.service.UserService;
 import com.example.nablebackend.utils.StringEncryptor;
 import lombok.Getter;
@@ -20,6 +22,9 @@ public class UserController {
 
     @Autowired
     UserService userService;
+
+    @Autowired
+    EventService eventService;
 
     @PostMapping
     public ResponseEntity<UserDTO> saveUser(@RequestBody User user) {
@@ -50,5 +55,16 @@ public class UserController {
             }
         }
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+    }
+
+    @PostMapping("/{id}/events")
+    public ResponseEntity<Event> addEvent(@PathVariable(name = "id") Integer userId, @RequestBody Event event){
+        User user = userService.findById(userId);
+        if(user==null){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
+        event.setUser(user);
+        Event eventResp = eventService.save(event);
+        return ResponseEntity.status(HttpStatus.OK).body(eventResp);
     }
 }

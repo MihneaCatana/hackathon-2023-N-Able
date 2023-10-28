@@ -25,6 +25,5 @@ public class User {
     private Boolean isAdmin;
 
     @OneToMany(mappedBy = "user", orphanRemoval = true)
-    @JsonIgnoreProperties("user")
     private List<Event> events;
 }
